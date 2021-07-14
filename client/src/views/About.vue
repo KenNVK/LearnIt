@@ -87,7 +87,7 @@ export default {};
 .info .info-basic,
 .info .info-skill {
   margin: 20px;
-  padding: 20px 40px;
+  padding: 20px;
   text-align: left;
 }
 
