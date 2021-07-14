@@ -7,11 +7,8 @@ const route = require("./routes");
 db.connect();
 const app = express();
 
-const corsOptions = {
-  origin: "http://localhost:8080",
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+//Connect client
+app.use(cors());
 
 // parse application/json
 app.use(express.json());
