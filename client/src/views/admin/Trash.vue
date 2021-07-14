@@ -292,6 +292,7 @@ export default {
 
   .toolbar {
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .nav {
@@ -304,9 +305,6 @@ export default {
 
   .nav-icon {
     vertical-align: bottom;
-  }
-  .checkbox-select-all {
-    width: 100%;
   }
 
   .total-posts {
