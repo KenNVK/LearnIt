@@ -1,0 +1,104 @@
+POST  http://localhost:3300/api/auth/signup
+Content-Type: application/json
+
+{
+  "name": "a",
+  "password": "12345678",
+  "email": "a@gmail.com"
+}
+
+###
+POST  http://localhost:3300/api/auth/signin
+Content-Type: application/json
+
+{
+  "email": "khoa@gmail.com",
+  "password": "12345678"
+}
+
+###
+GET http://localhost:3300/api/auth/
+Content-Type : application/json
+Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+
+###
+POST http://localhost:3300/api/admin/create
+Content-Type : application/json
+Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+
+{
+  "title": "Laravel",
+  "description": "Backend framework",
+  "url": "https://lararavel.com/"
+}
+
+### 
+GET  http://localhost:3300/api/posts
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+### 
+GET  http://localhost:3300/api/trash
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+
+###
+PUT http://localhost:3300/api/admin/60e0254ea3f30907abe0defe
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+
+{
+  "title": "React",
+  "description": "Frontend framework",
+  "url": "https://reactjs.org"
+}
+
+###
+DELETE http://localhost:3300/api/admin/60e0254ea3f30907abe0defe
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+
+###
+DELETE http://localhost:3300/api/admin/delete-all
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+
+{
+  "postIds": [
+    "60e05e89cb94e12f2c483a68",
+    "60e05e96cb94e12f2c483a69",
+    "60e05eaacb94e12f2c483a6a",
+    "60e05ec0cb94e12f2c483a6b"
+    ]
+}
+
+###
+PATCH  http://localhost:3300/api/admin/60ceca460945dd1e94a1d4cc
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+
+###
+PATCH http://localhost:3300/api/admin/restore-all
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+
+{
+  "postIds": [
+    "60e05e89cb94e12f2c483a68",
+    "60e05e96cb94e12f2c483a69",
+    "60e05eaacb94e12f2c483a6a",
+    "60e05ec0cb94e12f2c483a6b"
+    ]
+}
+###
+DELETE  http://localhost:3300/api/admin/force-delete-all
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
+
+{
+  "postIds": [
+    "60e05a8199235b2ac55fdd07",
+    "60e05a8499235b2ac55fdd08"
+    ]
+}
+
+###
+DELETE http://localhost:3300/api/admin/60e05083e0ce092601030c71/force
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDkwMjEzY2UzYWIyMjE4ZGJhZDkyN2YiLCJpYXQiOjE2MjU0MjAwMTcsImV4cCI6MTYyNTUwNjQxN30.YDb9olcwj_KAkWijBEKxj73RzkES5VYfeyTib4oUicQ
