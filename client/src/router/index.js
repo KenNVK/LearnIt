@@ -17,17 +17,20 @@ const routes = [
     component: Views,
     children: [
       {
+        name: "Home",
         path: "/home",
         component: Home,
         meta: { reqAuth: true },
       },
-      { path: "/about", component: About },
+      { name: "About", path: "/about", component: About },
       {
+        name: "Admin",
         path: "/admin",
         component: Admin,
         meta: { reqAuth: true, reqAdmin: true },
       },
       {
+        name: "Trash",
         path: "/admin/trash",
         component: Trash,
         meta: { reqAuth: true, reqAdmin: true },
@@ -35,9 +38,9 @@ const routes = [
     ],
   },
 
-  { path: "/signin", component: Signin },
-  { path: "/signup", component: SignUp },
-  { path: "/:pathMatch(.*)*", component: Error },
+  { name: "Signin", path: "/signin", component: Signin },
+  { name: "Signup", path: "/signup", component: SignUp },
+  { name: "Error", path: "/:pathMatch(.*)*", component: Error },
 ];
 
 const router = createRouter({
@@ -57,6 +60,7 @@ router.beforeEach(to => {
       path: "/error",
     };
   }
+  document.title = `LearnIt - ${to.name}`;
 });
 
 export default router;

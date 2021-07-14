@@ -1,14 +1,14 @@
 /* PC */
 @media (min-width: 64em) {
   .hide-on-pc {
-    display: none !important;
+    display: none;
   }
 }
 
 /* Mobile & tablet */
 @media (max-width: 1023px) {
   .hide-on-mobile-tablet {
-    display: none !important;
+    display: none;
   }
 
   .link-app-name-mobile {
@@ -45,7 +45,7 @@
 /* Mobile */
 @media (max-width: 739px) {
   .hide-on-mobile {
-    display: none !important;
+    display: none;
   }
 
   .footer {
@@ -143,5 +143,10 @@
 
   .info-basic {
     font-size: 0.9rem;
+  }
+
+  .form {
+    width: 300px !important;
+    padding: 4px !important;
   }
 }

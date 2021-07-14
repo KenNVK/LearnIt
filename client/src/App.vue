@@ -5,6 +5,9 @@
 <script>
 export default {
   name: "App",
+  setup() {
+    document.title = "LearnIt";
+  },
 };
 </script>
 

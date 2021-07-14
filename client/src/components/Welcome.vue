@@ -116,7 +116,7 @@ h1 {
   }
 
   .nav {
-    justify-content: center;
+    flex-direction: column;
   }
 
   .nav-link {
