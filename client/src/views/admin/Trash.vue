@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid main">
-    <div class="header">
+    <div class="header-trash-page">
       <a class="title" href=""><h1>Trash page</h1> </a>
     </div>
     <div class="toolbar">
@@ -15,77 +15,79 @@
         />
         <label class="form-check-label" for="checkbox-all">Select all</label>
       </div>
-      <select class="form-select checkbox-select-all" required v-model="selected">
-        <option disabled value="">--Choose actions--</option>
-        <option value="delete">Delete</option>
-        <option value="restore">Restore</option>
-      </select>
-      <button
-        type="submit"
-        class="btn btn-primary check-all-submit-btn ms-2 "
-        :disabled="!checkedArray.length"
-        @click="handleSubmitToolbar(selected)"
-      >
-        OK
-      </button>
+      <form class="toolbar-form" @submit.prevent="handleSubmitToolbar(selected)">
+        <select class="form-select checkbox-select-all" required v-model="selected">
+          <option disabled value="">--Choose actions--</option>
+          <option value="delete">Delete</option>
+          <option value="restore">Restore</option>
+        </select>
+        <button
+          type="submit"
+          class="btn btn-primary check-all-submit-btn ms-2 "
+          :disabled="!checkedArray.length"
+        >
+          OK
+        </button>
+      </form>
       <div class="total-posts ms-auto">Total trash: {{ trashCount }}</div>
     </div>
+    <div class="table-wrap">
+      <table class="table mt-3">
+        <thead>
+          <tr class="table-dark">
+            <th scope="col" width="40">#</th>
+            <th scope="col">Courses</th>
+            <th scope="col">Description</th>
+            <th scope="col">URL</th>
+            <th scope="col">Create date</th>
+            <th scope="col">Update date</th>
+            <th scope="col" width="40"></th>
+          </tr>
+        </thead>
+        <div class="table-status" v-show="trashCount === 0">Trash is empty!</div>
 
-    <table class="table mt-3">
-      <thead>
-        <tr class="table-dark">
-          <th scope="col" width="40">#</th>
-          <th scope="col">Courses</th>
-          <th scope="col">Description</th>
-          <th scope="col">URL</th>
-          <th scope="col">Create date</th>
-          <th scope="col">Update date</th>
-          <th scope="col" width="40"></th>
-        </tr>
-      </thead>
-      <div class="table-status" v-show="trashCount === 0">Trash is empty!</div>
-
-      <tbody>
-        <tr
-          class="posts-items "
-          :class="{ selected: isChecked(post._id) }"
-          v-for="post in trash"
-          :key="post._id"
-        >
-          <td scope="row">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="checkbox-items"
-              @change="updateCheckall()"
-              v-model="checkedArray"
-              :value="post._id"
-            />
-          </td>
-          <td>{{ post.title }}</td>
-          <td>{{ post.description }}</td>
-          <td>
-            <a class="link link-primary" :href="post.url">{{ post.url }}</a>
-          </td>
-          <td>{{ dateTime(post.createdAt) }}</td>
-          <td>{{ dateTime(post.updatedAt) }}</td>
-          <td class="link-wrap">
-            <a class="link link-primary" @click="restorePost(post._id)"
-              ><i class="ri-reply-all-fill restore-icon"></i
-            ></a>
-            <a
-              class="link link-danger"
-              data-bs-toggle="modal"
-              data-bs-target="#delete-modal"
-              @click="findPostTrash(post._id)"
-            >
-              <i class="ri-delete-bin-line delete-icon"></i>
-            </a>
-            <DeleteModal @handle-force-delete="forceDelete(findedPostTrash._id)" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        <tbody>
+          <tr
+            class="posts-items "
+            :class="{ selected: isChecked(post._id) }"
+            v-for="post in trash"
+            :key="post._id"
+          >
+            <td scope="row">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="checkbox-items"
+                @change="updateCheckall()"
+                v-model="checkedArray"
+                :value="post._id"
+              />
+            </td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.description }}</td>
+            <td>
+              <a class="link link-primary" :href="post.url">{{ post.url }}</a>
+            </td>
+            <td>{{ dateTime(post.createdAt) }}</td>
+            <td>{{ dateTime(post.updatedAt) }}</td>
+            <td class="link-wrap">
+              <a class="link link-primary" @click="restorePost(post._id)"
+                ><i class="ri-reply-all-fill restore-icon"></i
+              ></a>
+              <a
+                class="link link-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#delete-modal"
+                @click="findPostTrash(post._id)"
+              >
+                <i class="ri-delete-bin-line delete-icon"></i>
+              </a>
+              <DeleteModal @handle-force-delete="forceDelete(findedPostTrash._id)" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -181,7 +183,7 @@ export default {
   min-height: calc(100vh - 108px);
 }
 
-.header {
+.header-trash-page {
   display: flex;
 }
 
@@ -229,6 +231,10 @@ export default {
   margin: 20px 0 0 8px;
 }
 
+.toolbar-form {
+  display: flex;
+}
+
 .checkbox-select-all {
   width: 210px;
   margin-left: 10px;
@@ -241,8 +247,8 @@ export default {
   padding: 8px;
 }
 
-.table {
-  table-layout: fixed;
+.table-wrap {
+  overflow-x: scroll;
 }
 
 .posts-items {
@@ -276,5 +282,35 @@ export default {
   text-align: center;
   font-size: 1.1rem;
   padding: 12px;
+}
+
+@media (max-width: 739px) {
+  .header-admin-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+  }
+
+  .nav {
+    align-self: flex-end;
+  }
+
+  .nav-link {
+    padding: 6px;
+  }
+
+  .nav-icon {
+    vertical-align: bottom;
+  }
+  .checkbox-select-all {
+    width: 100%;
+  }
+
+  .total-posts {
+    margin-top: 10px;
+  }
 }
 </style>

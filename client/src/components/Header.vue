@@ -5,13 +5,14 @@
       <h3><i class="ri-code-s-slash-line header-link-icon"></i> LearnIt</h3>
     </router-link>
     <ul class="header-nav" :class="{ 'header-nav-mobile-active': isNavMobile }">
-      <router-link class="link-app-name-mobile hide-on-pc hide-on-tablet" :to="{ name: 'Welcome' }">
-        <h3><i class="ri-code-s-slash-line header-link-icon"></i> LearnIt</h3>
-      </router-link>
       <i
         class="ri-close-line nav-mobile-close-icon hide-on-pc hide-on-tablet"
         @click="closeNavMobile"
       ></i>
+      <router-link class="link-app-name-mobile hide-on-pc hide-on-tablet" :to="{ name: 'Welcome' }">
+        <h3><i class="ri-code-s-slash-line header-link-icon"></i> LearnIt</h3>
+      </router-link>
+      <div class="nav-border"></div>
       <li class="header-list" @click="closeNavMobile">
         <router-link class="header-link" to="/home">Home</router-link>
       </li>
@@ -22,7 +23,7 @@
         <router-link class="header-link" to="/admin">Admin</router-link>
       </li>
       <li class="header-list header-list-has-logout">
-        <a class="header-link" v-if="name">{{ name }}</a>
+        <a class="header-link header-link-username" v-if="name">{{ name }}</a>
         <router-link class="header-link" to="/signin" v-if="!name">Login</router-link>
         <router-link
           class="header-link header-link-logout"

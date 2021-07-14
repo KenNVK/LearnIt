@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid main">
-    <div class="header">
+    <div class="header-admin-page">
       <a class="title" href=""><h1>Admin page</h1> </a>
       <div class="nav">
         <div class="nav-list">
@@ -224,7 +224,7 @@ export default {
   min-height: calc(100vh - 108px);
 }
 
-.header {
+.header-admin-page {
   display: flex;
   justify-content: space-between;
 }
@@ -288,10 +288,6 @@ export default {
   padding: 8px;
 }
 
-.table {
-  border-collapse: collapse;
-}
-
 .table-wrap {
   overflow-x: scroll;
 }
@@ -327,5 +323,35 @@ export default {
   text-align: center;
   font-size: 1.1rem;
   padding: 12px;
+}
+
+@media (max-width: 739px) {
+  .header-admin-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+  }
+
+  .nav {
+    align-self: flex-end;
+  }
+
+  .nav-link {
+    padding: 6px;
+  }
+
+  .nav-icon {
+    vertical-align: bottom;
+  }
+  .checkbox-select-all {
+    width: 100%;
+  }
+
+  .total-posts {
+    margin-top: 10px;
+  }
 }
 </style>
