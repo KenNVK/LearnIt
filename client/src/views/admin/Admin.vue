@@ -26,7 +26,7 @@
         <label class="form-check-label" for="checkbox-all">Select all</label>
       </div>
       <form class="toolbar-form" @submit.prevent="handleSubmitToolbar(selected)">
-        <select class="form-select checkbox-select-all" required v-model="selected">
+        <select class="form-select toolbar-form-select" required v-model="selected">
           <option disabled value="">--Choose actions--</option>
           <option value="delete">Delete</option>
         </select>
@@ -93,7 +93,7 @@
                   data-bs-target="#editFormModal"
                 ></i> </a
               ><br />
-              <a class="link link-danger" @click="deletePost(post._id)">
+              <a href="#" class="link link-danger" @click="deletePost(post._id)">
                 <i class="ri-delete-bin-line delete-icon"></i>
               </a>
               <EditForm
@@ -276,7 +276,8 @@ export default {
 .toolbar-form {
   display: flex;
 }
-.checkbox-select-all {
+
+.toolbar-form-select {
   width: 210px;
   margin-left: 10px;
   cursor: pointer;
@@ -297,13 +298,18 @@ export default {
   word-wrap: break-word;
 }
 
-.link {
+.table .link {
   text-decoration: none;
 }
 
 .edit-icon,
 .delete-icon {
-  font-size: 1.3rem;
+  display: inline-block;
+  font-size: 1.4rem;
+  padding: 0 4px;
+}
+.edit-icon {
+  margin-bottom: 6px;
 }
 
 .selected {
@@ -336,7 +342,7 @@ export default {
     justify-content: space-between;
   }
 
-  .nav {
+  .nav-icon {
     align-self: flex-end;
   }
 
@@ -346,6 +352,15 @@ export default {
 
   .nav-icon {
     vertical-align: bottom;
+  }
+
+  .toolbar-form {
+    flex: 1;
+  }
+
+  .toolbar-form-select {
+    margin: 0;
+    flex: 1;
   }
 
   .total-posts {

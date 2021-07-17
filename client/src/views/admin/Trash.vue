@@ -16,7 +16,7 @@
         <label class="form-check-label" for="checkbox-all">Select all</label>
       </div>
       <form class="toolbar-form" @submit.prevent="handleSubmitToolbar(selected)">
-        <select class="form-select checkbox-select-all" required v-model="selected">
+        <select class="form-select toolbar-form-select" required v-model="selected">
           <option disabled value="">--Choose actions--</option>
           <option value="delete">Delete</option>
           <option value="restore">Restore</option>
@@ -37,7 +37,7 @@
           <tr class="table-dark">
             <th scope="col" width="40">#</th>
             <th scope="col">Courses</th>
-            <th scope="col">Description</th>
+            <th scope="col" style="min-width: 240px;">Description</th>
             <th scope="col">URL</th>
             <th scope="col">Create date</th>
             <th scope="col">Update date</th>
@@ -63,7 +63,7 @@
                 :value="post._id"
               />
             </td>
-            <td>{{ post.title }}</td>
+            <td>{{ post.title }}aaaaaaaaaaaaa</td>
             <td>{{ post.description }}</td>
             <td>
               <a class="link link-primary" :href="post.url">{{ post.url }}</a>
@@ -71,10 +71,11 @@
             <td>{{ dateTime(post.createdAt) }}</td>
             <td>{{ dateTime(post.updatedAt) }}</td>
             <td class="link-wrap">
-              <a class="link link-primary" @click="restorePost(post._id)"
-                ><i class="ri-reply-all-fill restore-icon"></i
-              ></a>
+              <a href="#" class="link link-primary" @click="restorePost(post._id)"
+                ><i class="ri-reply-all-fill restore-icon"></i></a
+              ><br />
               <a
+                href="#"
                 class="link link-danger"
                 data-bs-toggle="modal"
                 data-bs-target="#delete-modal"
@@ -235,7 +236,7 @@ export default {
   display: flex;
 }
 
-.checkbox-select-all {
+.toolbar-form-select {
   width: 210px;
   margin-left: 10px;
   cursor: pointer;
@@ -248,7 +249,7 @@ export default {
 }
 
 .table-wrap {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .posts-items {
@@ -256,13 +257,19 @@ export default {
   word-wrap: break-word;
 }
 
-.link {
+.table .link {
   text-decoration: none;
 }
 
 .restore-icon,
 .delete-icon {
-  font-size: 1.3rem;
+  display: inline-block;
+  font-size: 1.4rem;
+  padding: 0 4px;
+}
+
+.restore-icon {
+  margin-bottom: 6px;
 }
 
 .selected {
@@ -295,16 +302,13 @@ export default {
     justify-content: space-between;
   }
 
-  .nav {
-    align-self: flex-end;
+  .toolbar-form {
+    flex: 1;
   }
 
-  .nav-link {
-    padding: 6px;
-  }
-
-  .nav-icon {
-    vertical-align: bottom;
+  .toolbar-form-select {
+    margin: 0;
+    flex: 1;
   }
 
   .total-posts {
