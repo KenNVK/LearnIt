@@ -63,7 +63,7 @@
                 :value="post._id"
               />
             </td>
-            <td>{{ post.title }}aaaaaaaaaaaaa</td>
+            <td>{{ post.title }}</td>
             <td>{{ post.description }}</td>
             <td>
               <a class="link link-primary" :href="post.url">{{ post.url }}</a>
