@@ -37,6 +37,7 @@
               <span class="skill">Nodejs</span>
               <span class="skill">VueJs</span>
               <span class="skill">Network</span>
+              <span class="skill">Git</span>
             </div>
           </div>
         </div>
