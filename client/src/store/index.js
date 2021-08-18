@@ -132,7 +132,6 @@ export default createStore({
       commit("update_post", updatedPost);
       try {
         const response = await axios.put(`${apiUrl}/admin/${updatedPost._id}`, updatedPost);
-        console.log(response.data);
         return response.data;
       } catch (error) {
         if (error.response.data) return error.response.data;
@@ -311,7 +310,8 @@ export default createStore({
       state.trash = state.trash.filter(post => post._id !== payload.post._id);
     },
     create_post(state, payload) {
-      (state.status = payload.message), state.posts.push(payload.post);
+      state.status = payload.message;
+      state.posts.push(payload.post);
     },
   },
 });
