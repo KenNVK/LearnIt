@@ -24,7 +24,7 @@ const ValidateForm = Yup.object().shape({
   title: Yup.string().required("Title is required!"),
   description: Yup.string().max(100, "The maximum length of a description is 100 characters"),
   url: Yup.string().matches(
-    /((https?):\/\/(www\.)?[a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*))/,
+    /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
     "Please enter a valid url of website!"
   ),
   image: Yup.string(),

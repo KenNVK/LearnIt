@@ -39,12 +39,7 @@
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                 Close
               </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-                @click="handleUpdatePost"
-              >
+              <button type="button" class="btn btn-primary" @click="handleUpdatePost">
                 Update
               </button>
             </div>
@@ -59,6 +54,7 @@
 import { watchEffect } from "vue";
 import { useField, useForm } from "vee-validate";
 import { ValidateForm } from "../../utils/validate";
+import $ from "jquery";
 export default {
   name: "EditForm",
   props: { findedPostProp: Object, loadFindedPostProp: Boolean },
@@ -83,7 +79,15 @@ export default {
 
     const handleUpdatePost = handleSubmit(updatedPost => {
       emit("handle-update-post", updatedPost);
+      closeModal();
     });
+
+    const closeModal = () => {
+      $("body").removeClass("modal-open");
+      $("body").removeAttr("style");
+      $("#editFormModal").hide();
+      $(".modal-backdrop").remove();
+    };
 
     return {
       handleUpdatePost,

@@ -171,6 +171,7 @@ export default createStore({
     async deleteAllPosts({ commit }, postIds) {
       try {
         const response = await axios.delete(`${apiUrl}/admin/delete-all`, { data: { postIds } });
+        console.log(response.data);
         if (response.data.success) {
           commit("delete_all", response.data);
           return response.data;
@@ -185,10 +186,8 @@ export default createStore({
         const response = await axios.delete(`${apiUrl}/admin/force-delete-all`, {
           data: { postIds },
         });
-        console.log(response.data);
         if (response.data.success) {
           commit("force_delete_all", response.data);
-          console.log(response.data);
           return response.data;
         }
       } catch (error) {

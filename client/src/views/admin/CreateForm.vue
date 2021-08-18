@@ -3,46 +3,40 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="createFormModalLabel">Edit form</h5>
+          <h5 class="modal-title" id="createFormModalLabel">Create form</h5>
           <button
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
             aria-label="Close"
-            @click="handleCloseModal"
           ></button>
         </div>
         <div class="modal-body">
           <form>
             <div class="form-group mb-3" :class="{ invalid: titleError }">
-              <label class="col-form-label ">Courses:</label>
+              <label class="col-form-label">Courses:</label>
               <input type="text" class="form-control" v-model.lazy="title" @blur="handleTitle" />
               <span class="form-message">{{ titleError }}</span>
             </div>
             <div class="form-group mb-3" :class="{ invalid: descriptionError }">
               <label class="col-form-label">Description:</label>
-              <textarea class="form-control" v-model="description" @blur="handleDescription" />
+              <textarea class="form-control" v-model.lazy="description" @blur="handleDescription" />
               <span class="form-message">{{ descriptionError }}</span>
             </div>
             <div class="form-group mb-3" :class="{ invalid: urlError }">
               <label class="col-form-label">Url:</label>
-              <input class="form-control" v-model="url" @blur="handleUrl" />
+              <input class="form-control" v-model.lazy="url" @blur="handleUrl" />
               <span class="form-message">{{ urlError }}</span>
             </div>
             <div class="form-group mb-3" :class="{ invalid: imageError }">
               <label class="col-form-label">Image:</label>
-              <input class="form-control" v-model="image" @blur="handleImage" />
+              <input class="form-control" v-model.lazy="image" @blur="handleImage" />
               <span class="form-message">{{ imageError }}</span>
             </div>
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-                @click="handleCreatePost"
-              >
+              <button type="button" class="btn btn-primary" @click="handleCreatePost">
                 Create
               </button>
             </div>
@@ -54,11 +48,14 @@
 </template>
 
 <script>
+import { ref } from "vue";
 import { useField, useForm } from "vee-validate";
 import { ValidateForm } from "../../utils/validate";
+import $ from "jquery";
 export default {
   name: "EditForm",
   setup(props, { emit }) {
+    const isModal = ref("");
     const { handleSubmit } = useForm({ validationSchema: ValidateForm });
     const { value: title, errorMessage: titleError, handleChange: handleTitle } = useField("title");
     const {
@@ -69,9 +66,18 @@ export default {
     const { value: url, errorMessage: urlError, handleChange: handleUrl } = useField("url");
     const { value: image, errorMessage: imageError, handleChange: handleImage } = useField("image");
 
-    const handleCreatePost = handleSubmit(newPost => {
+    const handleCreatePost = handleSubmit((newPost, { resetForm }) => {
       emit("handle-create-post", newPost);
+      resetForm();
+      closeModal();
     });
+
+    const closeModal = () => {
+      $("body").removeClass("modal-open");
+      $("body").removeAttr("style");
+      $("#createFormModal").hide();
+      $(".modal-backdrop").remove();
+    };
 
     return {
       title,
@@ -87,6 +93,7 @@ export default {
       imageError,
       handleImage,
       handleCreatePost,
+      isModal,
     };
   },
 };

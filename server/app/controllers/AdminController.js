@@ -91,8 +91,9 @@ class PostController {
       if (!deletedPosts) {
         return res.status(401).json({ success: false, message: "Posts not found!" });
       }
+      const posts = await Post.find({});
 
-      res.json({ success: true, message: "Posts deleted!", posts: deletedPosts });
+      res.json({ success: true, message: "Posts deleted!", posts });
     } catch (error) {
       console.log(error);
       res.status(500).json({ success: false, message: "Internal server error" });
@@ -126,7 +127,6 @@ class PostController {
       }
 
       await Post.deleteMany({ _id: { $in: postDeleteConditions._id } });
-      const posts = await Post.find({});
       res.json({ success: true, message: "Posts deleted!", posts: deletedPosts });
     } catch (error) {
       console.log(error);
