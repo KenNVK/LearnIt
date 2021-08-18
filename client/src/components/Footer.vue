@@ -3,7 +3,7 @@
     <div class="footer-info">
       <img src="../assets/images/ken.jpg" alt="photo" />
       <span>{{ new Date().getFullYear() }} Written by</span>
-      <a href="https://github.com/KenNVK/todos-app"
+      <a href="https://github.com/KenNVK/learnit"
         ><i class="ri-github-fill github-icon"></i>KenNVK</a
       >
     </div>
