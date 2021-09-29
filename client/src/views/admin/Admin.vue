@@ -16,6 +16,7 @@
     <div class="toolbar">
       <div class="form-check">
         <input
+          name="checkbox"
           class="form-check-input"
           type="checkbox"
           id="checkbox-all"
@@ -26,7 +27,7 @@
         <label class="form-check-label" for="checkbox-all">Select all</label>
       </div>
       <form class="toolbar-form" @submit.prevent="handleSubmitToolbar(selected)">
-        <select class="form-select toolbar-form-select" required v-model="selected">
+        <select class="form-select toolbar-form-select" name="action" required v-model="selected">
           <option disabled value="">--Choose actions--</option>
           <option value="delete">Delete</option>
         </select>
@@ -44,7 +45,7 @@
       <table class="table mt-3">
         <thead>
           <tr class="table-primary">
-            <th scope="col" width="40">#</th>
+            <th scope="col">#</th>
             <th scope="col">Courses</th>
             <th scope="col">Description</th>
             <th scope="col">URL</th>
@@ -65,20 +66,28 @@
               <input
                 class="form-check-input"
                 type="checkbox"
-                name="checkbox-items"
+                name="checkbox"
                 @change="updateCheckall()"
                 v-model="checkedArray"
                 :value="post._id"
               />
             </td>
 
-            <td>{{ post.title }}</td>
-            <td>{{ post.description }}</td>
+            <td>
+              <span>{{ post.title }}</span>
+            </td>
+            <td>
+              <span>{{ post.description }}</span>
+            </td>
             <td>
               <a class="link link-primary" :href="post.url">{{ post.url }}</a>
             </td>
-            <td>{{ dateTime(post.createdAt) }}</td>
-            <td>{{ dateTime(post.updatedAt) }}</td>
+            <td>
+              <span>{{ dateTime(post.createdAt) }}</span>
+            </td>
+            <td>
+              <span>{{ dateTime(post.updatedAt) }}</span>
+            </td>
             <td class="link-wrap">
               <a
                 class="link link-primary"
@@ -220,151 +229,5 @@ export default {
 </script>
 
 <style scoped>
-.main {
-  min-height: calc(100vh - 108px);
-}
-
-.header-admin-page {
-  display: flex;
-  justify-content: space-between;
-}
-
-.title {
-  text-decoration: none;
-  padding: 8px;
-}
-
-.nav {
-  display: flex;
-  list-style: none;
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  color: #4a5f88;
-}
-
-.nav-link {
-  display: block;
-  text-decoration: none;
-  font-size: 1.4rem;
-  color: #4a5f88;
-}
-
-.nav-link + .nav-link {
-  margin-left: 8px;
-}
-
-.nav-link:hover .nav-link,
-.nav-icon:hover .nav-icon {
-  color: #2f64cc;
-}
-
-.nav-icon {
-  font-size: 1.4rem;
-  padding-right: 4px;
-  vertical-align: top;
-}
-
-.toolbar {
-  display: flex;
-  align-items: center;
-  margin: 20px 0 0 8px;
-}
-
-.toolbar-form {
-  display: flex;
-}
-
-.toolbar-form-select {
-  width: 210px;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.total-posts {
-  color: #0d6efd;
-  font-size: 1.2rem;
-  padding: 8px;
-}
-
-.table-wrap {
-  overflow-x: scroll;
-}
-
-.posts-items {
-  vertical-align: middle;
-  word-wrap: break-word;
-}
-
-.table .link {
-  text-decoration: none;
-}
-
-.edit-icon,
-.delete-icon {
-  display: inline-block;
-  font-size: 1.4rem;
-  padding: 0 4px;
-}
-.edit-icon {
-  margin-bottom: 6px;
-}
-
-.selected {
-  background-color: #c2dbff;
-}
-
-.modal-title {
-  color: #0d6efd;
-}
-
-.col-form-label {
-  font-weight: 700;
-}
-
-.table-status {
-  display: table-caption;
-  text-align: center;
-  font-size: 1.1rem;
-  padding: 12px;
-}
-
-@media (max-width: 739px) {
-  .header-admin-page {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .toolbar {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .nav-icon {
-    align-self: flex-end;
-  }
-
-  .nav-link {
-    padding: 6px;
-  }
-
-  .nav-icon {
-    vertical-align: bottom;
-  }
-
-  .toolbar-form {
-    flex: 1;
-  }
-
-  .toolbar-form-select {
-    margin: 0;
-    flex: 1;
-  }
-
-  .total-posts {
-    margin-top: 10px;
-  }
-}
+@import "../../assets/css/manage-page.css";
 </style>

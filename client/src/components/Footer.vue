@@ -2,10 +2,12 @@
   <footer class="footer">
     <div class="footer-info">
       <img src="../assets/images/ken.jpg" alt="photo" />
-      <span>{{ new Date().getFullYear() }} Written by</span>
-      <a href="https://github.com/KenNVK/learnit"
-        ><i class="ri-github-fill github-icon"></i>KenNVK</a
-      >
+      <div class="footer-info-link">
+        <span>{{ new Date().getFullYear() }} Written by</span>
+        <a href="https://github.com/KenNVK/learnit"
+          ><i class="ri-github-fill github-icon"></i>KenNVK</a
+        >
+      </div>
     </div>
     <div class="date">
       <span>{{ dateTime(new Date().getTime()) }}</span>
@@ -32,6 +34,12 @@ footer {
   background-color: #363636;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -70,6 +78,4 @@ footer {
   font-size: 1.2rem;
   padding: 4px;
 }
-
-@import "../assets/css/responsive.css";
 </style>

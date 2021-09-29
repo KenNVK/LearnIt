@@ -113,6 +113,10 @@ export default {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.header-link.router-link-exact-active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .header-link,
 .header-link-app-name {
   text-decoration: none;

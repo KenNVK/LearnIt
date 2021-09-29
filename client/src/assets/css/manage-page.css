@@ -1,0 +1,138 @@
+.main {
+  min-height: calc(100vh - 108px);
+}
+
+.header-admin-page,
+.header-trash-page {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  text-decoration: none;
+  padding: 8px;
+  color: #4a5f88;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  color: #4a5f88;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: #4a5f88;
+}
+
+.nav-link + .nav-link {
+  margin-left: 8px;
+}
+
+.nav-link:hover .nav-link,
+.nav-icon:hover .nav-icon {
+  color: #2f64cc;
+}
+
+.nav-icon {
+  font-size: 1.4rem;
+  padding-right: 4px;
+  vertical-align: top;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 0 8px;
+}
+
+.toolbar-form {
+  display: flex;
+}
+
+.form-select.toolbar-form-select {
+  width: 210px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+input[name="checkbox"] {
+  border-radius: 0 !important;
+  padding: 6px;
+}
+
+.total-posts {
+  color: #0d6efd;
+  font-size: 1.2rem;
+  padding: 8px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.posts-items {
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+.table th {
+  border-bottom: none;
+}
+
+.table tr td {
+  background-color: #fff;
+}
+
+.table tr.selected td {
+  background-color: #e0e1e4;
+}
+
+.table thead th:nth-child(1),
+.table tbody td:nth-child(1) {
+  position: sticky;
+  left: 0;
+}
+
+.table thead th:nth-child(2),
+.table tbody td:nth-child(2) {
+  position: sticky;
+  left: 32px;
+  overflow: hidden;
+}
+
+.table .link {
+  text-decoration: none;
+}
+
+.edit-icon,
+.delete-icon {
+  display: inline-block;
+  font-size: 1.4rem;
+  padding: 0 4px;
+}
+.edit-icon {
+  margin-bottom: 6px;
+}
+
+.modal-title {
+  color: #0d6efd;
+}
+
+.col-form-label {
+  font-weight: 700;
+}
+
+.table-status {
+  display: table-caption;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 12px;
+}

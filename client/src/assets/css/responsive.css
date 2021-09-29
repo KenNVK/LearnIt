@@ -24,6 +24,11 @@
     padding: 6px !important;
     margin: 20px !important;
   }
+
+  .table tbody td:nth-child(3) span {
+    display: block;
+    width: 260px;
+  }
 }
 
 /* Tablet */
@@ -166,5 +171,66 @@
   .form {
     width: 300px !important;
     padding: 4px !important;
+  }
+
+  /* *************** */
+  .header-admin-page,
+  .header-trash-page {
+    flex-direction: column;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nav-icon {
+    align-self: flex-end;
+  }
+
+  .nav-link {
+    padding: 6px 6px 6px 0 !important;
+  }
+
+  .nav-icon {
+    vertical-align: bottom;
+  }
+
+  .toolbar-form {
+    flex: 1;
+    align-items: center;
+  }
+
+  .form-select.toolbar-form-select {
+    margin: 12px 0;
+    flex: 1;
+  }
+
+  .total-posts {
+    margin-top: 10px;
+  }
+
+  /* *********** */
+  footer {
+    font-size: 0.8rem !important;
+  }
+
+  .footer-info-link {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-info span,
+  .footer-info a {
+    padding: 10px 0;
+    line-height: 0 !important;
+  }
+
+  .footer-info a {
+    margin: 0 !important;
   }
 }
