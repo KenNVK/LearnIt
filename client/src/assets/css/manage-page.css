@@ -112,12 +112,15 @@ input[name="checkbox"] {
   text-decoration: none;
 }
 
+.restore-icon,
 .edit-icon,
 .delete-icon {
   display: inline-block;
   font-size: 1.4rem;
   padding: 0 4px;
 }
+
+.restore-icon,
 .edit-icon {
   margin-bottom: 6px;
 }
