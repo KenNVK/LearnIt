@@ -205,6 +205,10 @@
     align-items: center;
   }
 
+  .form-check .form-check-label {
+    margin-right: 10px;
+  }
+
   .form-select.toolbar-form-select {
     margin: 12px 0;
     flex: 1;
