@@ -29,7 +29,7 @@
         </div>
         <div class="info-skill">
           <div>
-            <span class="info-skill-title">Skill:</span>
+            <span class="info-skill-title">Skills:</span>
             <div class="info-skill-swap">
               <span class="skill">Linux</span>
               <span class="skill">HTML/CSS</span>
