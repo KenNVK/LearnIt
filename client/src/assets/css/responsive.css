@@ -112,10 +112,6 @@
     flex-direction: column;
   }
 
-  .header-list-has-logout .header-link-username {
-    color: #c7732e !important;
-  }
-
   .header-link.header-link-logout {
     line-height: 30px;
   }

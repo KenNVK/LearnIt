@@ -130,6 +130,10 @@ export default {
   font-size: 1.8rem;
 }
 
+.header-link.header-link-username {
+  color: #c7732e;
+}
+
 .header-link.header-link-logout {
   background-color: rgb(235, 82, 82, 0.85);
   border-radius: 3px;
