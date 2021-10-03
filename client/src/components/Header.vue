@@ -131,7 +131,7 @@ export default {
 }
 
 .header-link.header-link-username {
-  color: #c7732e;
+  color: #c7732e !important;
 }
 
 .header-link.header-link-logout {
