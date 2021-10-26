@@ -7,6 +7,7 @@ import setAuthToken from "../utils/setAuthToken";
 export default createStore({
   state: {
     status: null,
+    loading: true,
     posts: [],
     trash: [],
     token: localStorage.getItem(LOCAL_STORAGE_TOKEN) || null,
@@ -20,6 +21,12 @@ export default createStore({
     trashCount: state => state.trash.length,
   },
   actions: {
+    //Checked status
+    async status({ commit }) {
+      const response = await axios.get(`${apiUrl}`);
+      if (response.data.success) commit("loading_status");
+    },
+
     // Handle login
     async signin({ commit, dispatch }, userForm) {
       try {
@@ -309,6 +316,9 @@ export default createStore({
     create_post(state, payload) {
       state.status = payload.message;
       state.posts.push(payload.post);
+    },
+    loading_status(state) {
+      state.loading = false;
     },
   },
 });

@@ -16,17 +16,31 @@
       <button class="btn btn-light">Join us now</button>
     </router-link>
   </div>
+  <transition name="fade">
+    <div class="loading" v-if="isLoading">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
 import { useStore } from "vuex";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 export default {
   name: "Welcome",
   setup() {
     const store = useStore();
     const name = ref(null);
+    const isLoading = ref(null);
     const loadUser = () => store.dispatch("loadUser");
+
+    watchEffect(() => {
+      store.dispatch("status");
+      const loading = store.state.loading;
+      isLoading.value = loading;
+    });
 
     if (store.getters.isLoggedIn) {
       loadUser().then(response => {
@@ -34,7 +48,7 @@ export default {
       });
     }
 
-    return { name };
+    return { name, isLoading };
   },
 };
 </script>
@@ -73,12 +87,12 @@ export default {
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .nav-link-user {
   font-style: italic;
-  color: rgb(245, 50, 50);
+  color: #c7732e;
 }
 
 h1 {
@@ -128,5 +142,28 @@ h1 {
     padding: 4px 12px;
     margin: 12px 0;
   }
+}
+
+/* Loading */
+.loading {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
