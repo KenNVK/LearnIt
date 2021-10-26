@@ -23,7 +23,7 @@ export default createStore({
   actions: {
     //Checked status
     async status({ commit }) {
-      const response = await axios.get(`${apiUrl}`);
+      const response = await axios.get(`${apiUrl}/status`);
       if (response.data.success) commit("loading_status");
     },
 
