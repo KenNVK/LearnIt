@@ -15,32 +15,21 @@
     <router-link to="/signup">
       <button class="btn btn-light">Join us now</button>
     </router-link>
+    <LoadingModal />
   </div>
-  <transition name="fade">
-    <div class="loading" v-if="isLoading">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  </transition>
 </template>
 
 <script>
 import { useStore } from "vuex";
-import { ref, watchEffect } from "vue";
+import { ref } from "vue";
+import LoadingModal from "./LoadingModal.vue";
 export default {
   name: "Welcome",
+  components: { LoadingModal },
   setup() {
     const store = useStore();
     const name = ref(null);
-    const isLoading = ref(null);
     const loadUser = () => store.dispatch("loadUser");
-
-    watchEffect(() => {
-      store.dispatch("status");
-      const loading = store.state.loading;
-      isLoading.value = loading;
-    });
 
     if (store.getters.isLoggedIn) {
       loadUser().then(response => {
@@ -48,7 +37,7 @@ export default {
       });
     }
 
-    return { name, isLoading };
+    return { name };
   },
 };
 </script>
@@ -142,28 +131,5 @@ h1 {
     padding: 4px 12px;
     margin: 12px 0;
   }
-}
-
-/* Loading */
-.loading {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>

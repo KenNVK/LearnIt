@@ -57,6 +57,7 @@
       <span>Already have an account ? </span>
       <router-link to="/signin" class="nav-link">Sign in</router-link>
     </div>
+    <LoadingModal />
   </div>
 </template>
 
@@ -65,8 +66,11 @@ import { useForm, useField } from "vee-validate";
 import { ValidateSignUp } from "../utils/validate";
 import { useStore } from "vuex";
 import { ref } from "vue";
+import LoadingModal from "./LoadingModal.vue";
+
 export default {
   name: "SignUp",
+  components: { LoadingModal },
   setup() {
     const store = useStore();
     const signupErrorMessage = ref("");

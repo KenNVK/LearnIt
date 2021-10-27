@@ -17,15 +17,18 @@
         </div>
       </div>
     </div>
+    <LoadingModal />
   </div>
 </template>
 
 <script>
 import { useStore } from "vuex";
 import { computed } from "vue";
+import LoadingModal from "../components/LoadingModal.vue";
 
 export default {
   name: "Home",
+  components: { LoadingModal },
   setup() {
     const store = useStore();
     const posts = computed(() => store.state.posts);
