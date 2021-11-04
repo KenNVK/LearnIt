@@ -12,7 +12,7 @@
           <div class="card-body bg-light">
             <h5 class="card-title">{{ post.title }}</h5>
             <p class="card-text">{{ post.description }}</p>
-            <a class="btn btn-primary" target="_blank" :href="post.url">LEARN</a>
+            <a class="btn btn-primary text-center" target="_blank" :href="post.url">LEARN</a>
           </div>
         </div>
       </div>

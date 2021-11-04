@@ -36,7 +36,7 @@
               <span class="skill">JavaScript</span>
               <span class="skill">Nodejs</span>
               <span class="skill">VueJs</span>
-              <span class="skill">Java</span>
+              <span class="skill">PHP</span>
               <span class="skill">Network</span>
               <span class="skill">Git</span>
             </div>
