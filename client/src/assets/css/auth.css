@@ -5,7 +5,7 @@
   align-items: center;
   background: linear-gradient(to right bottom, rgba(25, 25, 34, 0.65), rgb(16, 15, 26)),
     url("../images/landing.jpg") no-repeat center/cover;
-  height: 100vh;
+  min-height: 100vh;
   color: #fff;
 }
 
