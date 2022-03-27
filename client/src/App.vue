@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import {reactive, computed} from 'vue';
+import { useHead } from '@vueuse/head'
 export default {
   name: "App",
    setup() {
