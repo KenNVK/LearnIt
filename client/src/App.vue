@@ -5,8 +5,22 @@
 <script>
 export default {
   name: "App",
-  setup() {
-    document.title = "LearnIt";
+   setup() {
+    const siteData = reactive({
+      title: `Learnit`,
+      description: `Learnit is a simple blog`,
+    })
+
+    useHead({
+      // Can be static or computed
+      title: computed(() => siteData.title),
+      meta: [
+        {
+          name: `description`,
+          content: computed(() => siteData.description),
+        },
+      ],
+    })
   },
 };
 </script>
